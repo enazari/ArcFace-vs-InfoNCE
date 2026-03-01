@@ -1,0 +1,30 @@
+session: arcface_infonce
+
+data:
+  ms1m_dir: data/MS1M-ArcFace
+  num_identities: 85742
+  val_fraction: 0.2
+
+backbone:
+  name: resnet50                 # resnet50 | clip | dino | jepa
+  embedding_dim: 512
+  dropout: 0.4
+
+loss:
+  name: arcface_infonce          # arcface | arcface_infonce | arcface_repulsion
+  scale: 32
+  margin: 0.2
+  # InfoNCE params (used when name: arcface_infonce):
+  lambda_contrastive: 0.5
+  temperature: 0.07
+
+training:
+  epochs: 30
+  batch_size: 1350                 # for arcface_infonce: P = batch_size // 2 pairs
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  warmup_epochs: 5
+  num_workers: 6
+  mixed_precision: fp16          # no, fp16, or bf16
+  eval_every: 1

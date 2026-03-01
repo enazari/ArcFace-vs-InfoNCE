@@ -1,0 +1,27 @@
+name: face-verification
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      # torch from the official whl index avoids MKL symbol conflicts with conda
+      - --extra-index-url https://download.pytorch.org/whl/cu121
+      - torch>=2.1.0
+      - torchvision>=0.16.0
+      - lmdb
+      - pyyaml
+      - pillow
+      - numpy
+      - scikit-learn
+      - accelerate
+      - tqdm
+      - retina-face
+      - scikit-image
+      - opencv-python
+      - tf-keras
+      - open-clip-torch
+

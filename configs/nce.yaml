@@ -1,0 +1,26 @@
+session: nce
+
+data:
+  ms1m_dir: data/MS1M-ArcFace
+  num_identities: 85742
+  val_fraction: 0.2
+
+backbone:
+  name: resnet50
+  embedding_dim: 512
+  dropout: 0.4
+
+loss:
+  name: infonce
+  temperature: 0.07
+
+training:
+  epochs: 30
+  batch_size: 1450                 # P = batch_size // 2 identity pairs
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  warmup_epochs: 5
+  num_workers: 6
+  mixed_precision: fp16
+  eval_every: 5
