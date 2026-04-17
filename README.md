@@ -162,3 +162,7 @@ sbatch hpc/_requirements_installation.sh   # one-time env setup
 cd hpc && bash _download_models.sh          # pre-download weights (login node, has internet)
 sbatch hpc/arc.sh                           # submit training job
 ```
+
+## Acknowledgments
+
+This research was enabled in part by support provided by the Digital Research Alliance of Canada ([alliancecan.ca](https://alliancecan.ca)).
